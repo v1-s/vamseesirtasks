@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            margin: 90px 400px 250px 400px;
+            border-radius: 2px;
+            height: 200px;
+            border: 1px solid whitesmoke;
+            box-shadow: 1px 2px 3px 4px rgba(12,12,12,0.2);
+        }
+        h1{
+            margin-top: 20px;
+            text-align: center;
+        }
+        label{
+            margin-left: 90px;
+        }
+        input{
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+        button{
+            background-color: rebeccapurple;
+            color: white;
+            margin-top: 20px;
+            margin-left: 170px;
+            text-align: center;
+        }
+        button:hover{
+            transform: scale(1.1);
+            box-shadow: 3px 3px 2.5px plum;
+        }
+        #result{
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1>Age Calculator</h1>
+        <label for="dob">Enter Your DOB:</label>
+        <input type="date" id="dob" name="dob" ><br>
+        
+            <button> Calculated Age</button>
+            <p id =result> </p>
+    </div>
+    <script>
+        document.querySelector("button").addEventListener("click",function(){
+
+       
+        let dob=document.querySelector("#dob").value;
+        let userdob=new Date(dob);
+        if(dob==null || dob==''){  
+      document.getElementById("result").innerHTML = "**Choose a date please!**"; 
+      document.getElementById("result").style.color="red";      
+    }   
+    else { 
+    var userYear = userdob.getFullYear();  
+    var userMonth = userdob.getMonth();  
+    var crnt=new Date();
+    var crntyr= crnt.getFullYear();
+    var crntmth=crnt.getMonth();
+   
+    var years = crntyr-userYear;
+    console.log(years);
+    if(crntmth>userMonth){
+        var months = crntmth-userMonth;
+    }else{
+        years--;  
+      var months = 12 + crntmth - userMonth;  
+    }
+    if(months<0){
+        months=11;
+        years--;
+    }
+    document.getElementById("result").innerHTML =`You are ${years}years,${months}months old.`;
+    document.getElementById("result").style.color="green";
+    } 
+})    
+    </script>
+</body>
+</html>

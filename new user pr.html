@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="firstname" name="frstname" onclick="submit()" placeholder="Enter Your FullName" required>
+        <p id = "frst"></p>
+        <input type="text" id="username" name="usrname" placeholder="Enter Your UserName" required>
+        <p id = "usrname"></p>
+        <input type="email" id="email" name="eml" placeholder="Enter Your EmailId" required>
+        <p id="umail"></p>
+        <input type="password" id="pswrd"  placeholder="Enter Your password" required>
+        <p id="psrwd"></p>
+        <input type="tel" id="tel" placeholder="Enter Your Telephone Number" required>
+        <p id="pnum"></p>
+        <input type="text" id="pancard" name="pan" placeholder="Enter Your pancard " required>
+        <p id="pnd"></p>
+    </div>
+    <script>
+             var inputs = document.getElementsByTagName('input');
+        console.log(inputs);
+    //    for(var i = 0; i < inputs.length; i++) {
+    //        inputs[i].addEventListener("input", function() {
+        document.querySelector('input').addEventListener("input",function(){
+        let frstname=document.querySelector("#firstname").value;
+        let regnme=/^[a-zA-Z0-9]{5,15}$/
+        if(!regnme.test(frstname)){
+             document.querySelector("#firstname").style.border="2px solid orange"
+            document.querySelector("#frst").innerHTML="FirstName not valid"
+            document.querySelector("#frst").style.color="red"
+        }else{
+             document.querySelector("#firstname").style.border="4px solid green"
+             document.querySelector("#frst").innerHTML=" "
+        } 
+    });
+    document.querySelector('input').addEventListener("input",function(){
+        let uname=document.querySelector("#username").value;
+        let reguname= /^.[\w]{5,15}\.+[\w]*$/;
+         if(!reguname.test(uname)){
+             document.querySelector("#username").style.border="2px solid orange"
+            document.querySelector("#usrname").innerHTML="UserName not valid"
+            document.querySelector("#usrname").style.color="red"
+        }else{
+             document.querySelector("#username").style.border="4px solid green"
+             document.querySelector("#usrname").innerHTML=" "
+        } 
+    });
+        let uemail= document.querySelector("#email").value;
+        let regmail=/^.[\w]{8,15}(?:@)([.\w]+){5,8}(?:.+)[\w]{2,3}$/
+        if(!regmail.test(uemail)){
+             document.querySelector("#email").style.border="2px solid orange"
+            document.querySelector("#umail").innerHTML="UserEmail is  not valid"
+            document.querySelector("#umail").style.color="red"
+        }else{
+             document.querySelector("#email").style.border="4px solid green"
+             document.querySelector("#umail").innerHTML=" "
+        } 
+        let upswrd= document.querySelector("#pswrd").value;
+        let regpwd=/^.[\w]{3,8}([?:\.\_\#\@\_]+)([.\w]+){5,8}$/;
+        if(!regpwd.test(upswrd)){
+             document.querySelector("#pswrd").style.border="2px solid orange"
+            document.querySelector("#psrwd").innerHTML="Password is  not valid"
+            document.querySelector("#psrwd").style.color="red"
+        }else{
+             document.querySelector("#pswrd").style.border="4px solid green"
+             document.querySelector("#psrwd").innerHTML=" "
+        } 
+    </script>
+    
+</body>
+</html>

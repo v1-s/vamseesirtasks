@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            margin: 90px 300px 250px 300px;
+            border-radius: 2px;
+            height: 200px;
+            border: 1px solid whitesmoke;
+            box-shadow: 1px 2px 3px 4px rgba(12,12,12,0.2);
+        }
+        h1{
+            margin-top: 20px;
+            text-align: center;
+        }
+        #btn{
+            display:inline-flex;
+            
+             margin-left: 100px;
+             margin-top: 10px;
+        }
+        button{
+            border-style: none;
+            height: 30px;
+           padding: 5px  10px 5px 10px;
+            margin: 0px 12px 0px 12px;
+        }
+        #number{
+            padding: 10px;
+            margin-left: 170px;
+            font-size: 3em;
+            font-weight: 900;
+            margin-top: 10px;
+        }
+        #plus{
+            background-color: green;
+            color: white;
+            font-size: medium;
+        }
+        #plus:hover{
+           transform: scale(1.3);
+        }
+        #minus{
+            background-color: red;
+            color: white;
+            font-size: medium;
+        }
+        #minus:hover{
+           transform: scale(1.3);
+        }
+        #reset{
+            background-color: gray;
+            color: white;
+            font-size: medium;
+        }
+        #reset:hover{
+           transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <div id=box>
+        <h1>
+            Counter
+        </h1>
+        <p id="number">0</p>
+        <div id="btn">
+        <button id="minus">-</button>
+        <button id="reset">Reset</button>
+         <button id="plus">+</button>
+    </div>
+    </div>
+    <script>
+        let sub=document.querySelector("#minus");
+        let add=document.querySelector("#plus");
+        let res=document.querySelector("#reset");
+        let disp=document.querySelector("#number");
+        let count=0;
+        sub.addEventListener("click",function(){
+            count--;
+            disp.innerHTML=count;
+        })
+        add.addEventListener("click",function(){
+            count++;
+            disp.innerHTML=count;
+        })
+        res.addEventListener("click",function(){
+             count=0;
+            disp.innerHTML=count;
+        })
+    </script>
+</body>
+</html>

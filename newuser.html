@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h2{
+            margin-left: 50px;
+            margin-top: 100px;
+            text-align: center;
+            color: brown;
+        }
+        #box{
+            display: inline-flex;
+            flex-direction: column;
+            width: 350px;
+            box-shadow: 1px 2px 3px 4px rgba(120,12,12,0.2);
+            margin-left: 460px;
+            margin-top: 30px;
+        }
+       input::placeholder{
+            padding-left: 60px;
+        }
+        input:hover{
+           transform: scale(1.1);
+           box-shadow: 10px 10px 10px rebeccapurple;
+        }
+        input{
+            padding: 5px;
+            border-style: solid;
+            border-radius: 120px;
+            margin: 10px 30px 10px 30px  ;
+        }
+        #frst,#usrname,#umail,#psrwd,#pnum,#pnd{
+            text-align: center;
+        }
+        /* #usrname{
+            text-align: center;
+        } */
+    </style>
+</head>
+<body>
+    <h2>New User Signup</h2>
+    <div id="box">
+        <input type="text" id="firstname" name="frstname" onclick="submit()" placeholder="Enter Your FullName" required>
+        <p id = "frst"></p>
+        <input type="text" id="username" name="usrname" placeholder="Enter Your UserName" required>
+        <p id = "usrname"></p>
+        <input type="email" id="email" name="eml" placeholder="Enter Your EmailId" required>
+        <p id="umail"></p>
+        <input type="password" id="pswrd"  placeholder="Enter Your password" required>
+        <p id="psrwd"></p>
+        <input type="tel" id="tel" placeholder="Enter Your Telephone Number" required>
+        <p id="pnum"></p>
+        <input type="text" id="pancard" name="pan" placeholder="Enter Your pancard " required>
+        <p id="pnd"></p>
+    </div>
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        console.log(inputs);
+       for(var i = 0; i < inputs.length; i++) {
+           inputs[i].addEventListener("input", function() {
+        let frstname=document.querySelector("#firstname").value;
+        let regnme=/^[a-zA-Z0-9]{5,15}$/
+        if(!regnme.test(frstname)){
+             document.querySelector("#firstname").style.border="2px solid orange"
+            document.querySelector("#frst").innerHTML="FirstName not valid"
+            document.querySelector("#frst").style.color="red"
+        }else{
+             document.querySelector("#firstname").style.border="4px solid green"
+             document.querySelector("#frst").innerHTML=" "
+        } 
+
+        let uname=document.querySelector("#username").value;
+        let reguname= /^.[\w]{5,15}\.+.[\w]*$/;
+         if(!reguname.test(uname)){
+             document.querySelector("#username").style.border="2px solid orange"
+            document.querySelector("#usrname").innerHTML="UserName not valid"
+            document.querySelector("#usrname").style.color="red"
+        }else{
+             document.querySelector("#username").style.border="4px solid green"
+             document.querySelector("#usrname").innerHTML=" "
+        } 
+        let uemail= document.querySelector("#email").value;
+        let regmail=/^.[\w]{8,15}(?:@)([.\w]+){5,8}(?:.+)[\w]{2,3}$/
+        if(!regmail.test(uemail)){
+             document.querySelector("#email").style.border="2px solid orange"
+            document.querySelector("#umail").innerHTML="UserEmail is  not valid"
+            document.querySelector("#umail").style.color="red"
+        }else{
+             document.querySelector("#email").style.border="4px solid green"
+             document.querySelector("#umail").innerHTML=" "
+        } 
+        let upswrd= document.querySelector("#pswrd").value;
+        let regpwd=/^.[\w]{3,8}([?:\.\_\#\@\_]+)([.\w]+){5,8}$/;
+        if(!regpwd.test(upswrd)){
+             document.querySelector("#pswrd").style.border="2px solid orange"
+            document.querySelector("#psrwd").innerHTML="Password is  not valid"
+            document.querySelector("#psrwd").style.color="red"
+        }else{
+             document.querySelector("#pswrd").style.border="4px solid green"
+             document.querySelector("#psrwd").innerHTML=" "
+        } 
+        let utel= document.querySelector("#tel").value;
+        let regtel=/^\d{3}-\d{3}-\d{4}$/;
+        if(!regtel.test(utel)){
+             document.querySelector("#tel").style.border="2px solid orange"
+            document.querySelector("#pnum").innerHTML="Enter the Phone number in XXX-XXX-XXXX"
+            document.querySelector("#pnum").style.color="red"
+        }else{
+             document.querySelector("#tel").style.border="4px solid green"
+             document.querySelector("#pnum").innerHTML=" "
+        }      
+        let upan= document.querySelector("#pancard").value;
+        let regpan=/^(?:[A-Z]{5,})[0-9]{4,}[A-Z]$/;
+        if(!regpan.test(upan)){
+             document.querySelector("#pancard").style.border="2px solid orange"
+            document.querySelector("#pnd").innerHTML="Pancard  is  not valid"
+            document.querySelector("#pnd").style.color="red"
+        }else{
+             document.querySelector("#pancard").style.border="4px solid green"
+             document.querySelector("#pnd").innerHTML=" "
+        }  
+    })
+}
+
+
+
+
+
+
+
+
+
+
+let regex = /^.[\w]{3,8}([?:\.\_\#\@\_]+)([.\w]+){5,8}$/;
+console.log(regex.test("ab_cd@ab.d123")); // Should output: true
+let reg =/^(?:[A-Z]{5})[0-9]{4}[A-Z]$/;
+console.log(reg.test("DPIPP8989N")); // Should output: true
+
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+
+let mail=document.querySelector("#email").value;
+let phnum=document.querySelector("tel").value;
+let pancrd=document.querySelector("#pancard").value; -->
